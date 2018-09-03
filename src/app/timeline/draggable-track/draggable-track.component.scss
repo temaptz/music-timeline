@@ -1,0 +1,53 @@
+@import '../../../assets/variables';
+
+.track-draggable {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $track-container-height;
+  box-sizing: border-box;
+
+  .track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $track-height;
+
+    .description {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .track-controls {
+      position: absolute;
+      top: 0;
+      right: -$track-controls-width;
+      bottom: 0;
+      left: -$track-controls-width;
+      display: grid;
+      grid-template-columns: $track-controls-width 1fr $track-controls-width;
+
+      .left {
+        cursor: ew-resize;
+      }
+
+      .right {
+        cursor: ew-resize;
+      }
+
+      .center {
+        cursor: pointer;
+        cursor: -webkit-grab;
+      }
+    }
+
+    &.dragging {
+      .track-controls {
+        .center {
+          cursor: -webkit-grabbing;
+        }
+      }
+    }
+  }
+}

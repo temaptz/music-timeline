@@ -1,0 +1,34 @@
+<div class="timeline">
+  <div class="header">
+    <div class="col-title"></div>
+    <div class="col-timeline">
+      <div class="hour"
+           *ngFor="let hour of hours"
+           [style.width.%]="100 / hours.length">
+        {{ hour }}
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="col-title">
+      <div class="track-name track-item"
+           *ngFor="let track of tracks">
+        {{ track.name }}
+      </div>
+    </div>
+    <div class="col-timeline" #timelineContentColTimeline>
+      <my-draggable-track *ngFor="let track of tracks"
+                          [track]="track"
+                          class="track-item">
+      </my-draggable-track>
+    </div>
+  </div>
+</div>
+
+<button class="add-track" (click)="fileInput.click()">Добавить трек</button>
+<input type="file"
+       (change)="onFileInputChange($event)"
+       [style.display]="'none'"
+       #fileInput
+       accept="audio/*"
+/>

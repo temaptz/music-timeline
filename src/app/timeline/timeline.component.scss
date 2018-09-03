@@ -1,0 +1,68 @@
+@import '../../assets/variables';
+
+.timeline {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #eee;
+
+  .header, .content {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+
+    .col-title {
+      width: 20%;
+    }
+
+    .col-timeline {
+      width: 80%;
+    }
+  }
+
+  .header {
+
+    .col-timeline {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      border-bottom: $default-border;
+
+      .hour {
+        border-left: $default-border;
+        box-sizing: border-box;
+
+        &:last-child {
+          border-right: $default-border;
+        }
+      }
+    }
+  }
+
+  .content {
+    .col-title, .col-timeline {
+      .track-item {
+        display: block;
+        &:nth-child(2n + 1) {
+          background-color: #e3e3e3;
+        }
+      }
+    }
+
+    .col-title {
+      .track-name {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: $track-container-height;
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+.add-track {
+  margin-top: 10px;
+}

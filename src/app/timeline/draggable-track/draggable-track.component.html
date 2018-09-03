@@ -1,0 +1,21 @@
+<div class="track-draggable"
+     (mouseup)="onMouseUp()">
+  <div class="track"
+       [style.margin-left.px]="track.offsetLeftPx"
+       [style.width.px]="track.widthPx"
+       [ngClass]="{'dragging': track.isMoveing}"
+       [style.background-color]="track.color">
+    <div class="description"
+         *ngIf="track.dateFrom && track.dateTo">
+      {{ track.dateFrom | date : 'HH:mm' }} - {{ track.dateTo | date : 'HH:mm' }}
+    </div>
+    <div class="track-controls">
+      <div class="left"
+           (mousedown)="onMouseDown($event, 'left')"></div>
+      <div class="center"
+           (mousedown)="onMouseDown($event, 'center')"></div>
+      <div class="right"
+           (mousedown)="onMouseDown($event, 'right')"></div>
+    </div>
+  </div>
+</div>
